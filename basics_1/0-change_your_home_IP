@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
-# Configures Ubuntu server to localhost 127.0.0.2 and facebook.com 8.8.8.8
 
+# Backup the original hosts file
 sudo cp /etc/hosts /etc/hosts.bak
 
+# Replaces localhost entry
 sudo sed -i 's/^127\.0\.0\.1\s*localhost/127.0.0.2 localhost/' /etc/hosts
 
+# Verifies localhost entry exists
  if ! grep -q'^127\.0\.0\.0\s*localhost' /etc/hosts; then
     echo '127.0.0.2 localhost' | sudo tee -a /etc/hosts
+fi
 
+# Remove existing facebook.com entries and add new
 sudo sed -i '/facebook.com/d' /etc/hosts
 echo '8.8.8.8 facebook.com' | sudo tee -a /etc/hosts
