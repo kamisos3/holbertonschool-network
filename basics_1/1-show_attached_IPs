@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # Displays all active IPv4 IP adresses in the machine
 
-# Returns adresses separated by spaces
-hostname -I | tr ' ' '\n'
-echo "127.0.0.1"
+# Shows all IPv4 networks by filtering inet and looks for 2nd field leaving the IP address
+ip -4 addr show | grep inet | awk '{print $2}' | cut -d'/' -f1
