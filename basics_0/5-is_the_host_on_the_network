@@ -1,8 +1,9 @@
-#!/bin/usr/env bash
+#!/usr/bin/env bash
 #Checks if the host is on the network
-if [ -z "$1" ]; then
-    echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
-fi
 
+if [ $# -eq 0 ]; then
+    echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+else
 # Sends 5 requests to the IP
-ping -c 5 "$1"
+    ping -c 5 "$1"
+fi
