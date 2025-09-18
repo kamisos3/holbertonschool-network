@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Script displays listening ports
 
-sudo netstat -tulpen
+netstat -lp
