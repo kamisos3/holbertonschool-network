@@ -1,2 +1,5 @@
 #!/usr/bin/env bash
+# Script displays listening ports
+
+# Sudo is used so sockets can get root permissions
 sudo netstat -tulpen
